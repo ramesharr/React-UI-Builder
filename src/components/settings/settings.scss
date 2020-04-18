@@ -1,0 +1,10 @@
+.settings {
+  background-color: #ece8df;
+  align-items: center;
+  flex-direction: column;
+  &__title {
+    margin: 15px 0px;
+    text-align: center;
+    font-weight: bold;
+  }
+}

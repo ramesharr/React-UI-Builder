@@ -1,11 +1,15 @@
 import React from "react";
 
+import { Bank } from "./bank";
+import { Settings } from "./settings";
+import { Workspace } from "./workspace";
+
 function Appcontainer() {
   return (
     <div className="app-container">
-      <div className="col">col 1</div>
-      <div className="col">col 2</div>
-      <div className="col">col 3</div>
+      <Bank />
+      <Workspace />
+      <Settings />
     </div>
   );
 }
