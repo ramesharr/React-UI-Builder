@@ -14,6 +14,16 @@ function Workspace(props) {
     }
   }, [props.data]);
 
+  // For drag start
+  const dragStart = (e) => {
+    const target = e.target;
+    e.dataTransfer.setData("card_id", target.id);
+  };
+  // To stop propagation
+  const dragOver1 = (e) => {
+    e.stopPropagation();
+  };
+
   // For Dropping
   const drop = (e) => {
     e.preventDefault();
@@ -27,6 +37,7 @@ function Workspace(props) {
   const dragOver = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="col flex-2 ws">
       <div
