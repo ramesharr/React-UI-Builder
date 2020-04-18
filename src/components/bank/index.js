@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./bank.scss";
 
-function Bank() {
+function Bank(props) {
   // For drag start
   const dragStart = (e) => {
     const target = e.target;
@@ -12,24 +13,48 @@ function Bank() {
   const dragOver = (e) => {
     e.stopPropagation();
   };
+
+  const { wireframes, formfields } = props;
+
   return (
     <div className="col flex-1 bank">
       <div className="bank__title">Components</div>
       <div className="bank__components">
         <p>Wire Frames</p>
-        <li id="div" draggable onDragStart={dragStart} onDragOver={dragOver}>
-          Div Block
-        </li>
-        <li id="header">Header Block</li>
-        <li id="footer">Footer Block</li>
+        {wireframes.map((item) => {
+          return (
+            <li
+              key={item.id}
+              id={item.id}
+              draggable
+              onDragStart={dragStart}
+              onDragOver={dragOver}
+            >
+              {item.name}
+            </li>
+          );
+        })}
         <p>Form Fields</p>
-        <li id="input">Input Field</li>
-        <li id="htag">Heading</li>
-        <li id="textfield">Text Field</li>
-        <li id="button">Button</li>
+        {formfields.map((item) => {
+          return (
+            <li
+              key={item.id}
+              id={item.id}
+              draggable
+              onDragStart={dragStart}
+              onDragOver={dragOver}
+            >
+              {item.name}
+            </li>
+          );
+        })}
       </div>
     </div>
   );
 }
 
-export { Bank };
+const mapStateToProps = (state) => {
+  return state.Components;
+};
+
+export default connect(mapStateToProps)(Bank);
