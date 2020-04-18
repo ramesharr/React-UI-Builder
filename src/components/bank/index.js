@@ -57,4 +57,4 @@ const mapStateToProps = (state) => {
   return state.Components;
 };
 
-export default connect(mapStateToProps)(Bank);
+export default connect(mapStateToProps, null)(Bank);

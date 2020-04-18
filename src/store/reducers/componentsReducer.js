@@ -6,16 +6,14 @@ const initState = {
   ],
   formfields: [
     { name: "Input Field", id: "input" },
-    { name: "Text Field", id: "text" },
+    { name: "Text Field", id: "textfield" },
     { name: "Button", id: "button" },
   ],
 };
 
-const Components = (state = initState, action) => {
+export const Components = (state = initState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
-
-export { Components };

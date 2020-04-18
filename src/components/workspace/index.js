@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { createElement } from "./helper";
 import "./workspace.scss";
 
 function Workspace() {
@@ -8,13 +10,14 @@ function Workspace() {
     e.preventDefault();
     const card_id = e.dataTransfer.getData("card_id");
     const elt = document.getElementById(card_id).cloneNode(true);
-    e.target.appendChild(elt);
+    e.target.appendChild(createElement(card_id));
+    const txt = document.querySelector(".txt");
+    txt.style.display = "none";
   };
   // To allow to continue on dropping
   const dragOver = (e) => {
     e.preventDefault();
   };
-
   return (
     <div className="col flex-2 ws">
       <div
@@ -28,4 +31,4 @@ function Workspace() {
   );
 }
 
-export { Workspace };
+export default connect()(Workspace);
