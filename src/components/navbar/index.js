@@ -1,16 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { saveTemplate, clearTemplate } from "../../store/actions/boardActions";
 import logo from "../../assets/logo.svg";
 
-function Navbar() {
+function Navbar(props) {
   // clearing the board
   const handleClear = () => {
     document.getElementById("board").innerHTML = null;
     document.querySelector(".txt").style.display = "block";
+    props.onClear();
   };
   // Savingthe template
   const handleSave = () => {
-    console.log(document.getElementById("board").innerHTML);
+    let data = document.getElementById("board").innerHTML;
+    props.onSave(data);
+    console.log(data);
   };
   return (
     <div className="navbar">
@@ -29,4 +34,15 @@ function Navbar() {
   );
 }
 
-export { Navbar };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSave: (data) => {
+      dispatch(saveTemplate(data));
+    },
+    onClear: () => {
+      dispatch(clearTemplate());
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

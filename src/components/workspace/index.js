@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { createElement } from "./helper";
 import "./workspace.scss";
 
-function Workspace() {
+function Workspace(props) {
+  useEffect(() => {
+    console.log(props.data);
+    if (props.data !== null) {
+      const txt = document.querySelector(".txt");
+      txt.style.display = "none";
+      document.getElementById("board").innerHTML = props.data;
+    }
+  }, [props.data]);
+
   // For Dropping
   const drop = (e) => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData("card_id");
-    const elt = document.getElementById(card_id).cloneNode(true);
+    // const elt = document.getElementById(card_id).cloneNode(true);
     e.target.appendChild(createElement(card_id));
     const txt = document.querySelector(".txt");
     txt.style.display = "none";
@@ -31,4 +40,8 @@ function Workspace() {
   );
 }
 
-export default connect()(Workspace);
+const mapStateToProps = (state) => {
+  return state.Board;
+};
+
+export default connect(mapStateToProps)(Workspace);

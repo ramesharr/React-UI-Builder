@@ -4,3 +4,9 @@ export const saveTemplate = (data) => {
     data,
   };
 };
+
+export const clearTemplate = () => {
+  return {
+    type: "CLEAR_TEMPLATE",
+  };
+};

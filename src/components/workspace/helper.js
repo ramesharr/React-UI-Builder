@@ -20,29 +20,41 @@ const createElement = (id) => {
   }
 };
 
+const createRandomId = () => {
+  return uuid().toString().substr(0, 6);
+};
+
 const divCreator = (id) => {
   let div = document.createElement(id);
+  div.id = `${createRandomId()}`;
   return div;
 };
 
 const blockCreator = (id) => {
   let div = document.createElement("div");
+  div.id = `${createRandomId()}`;
   div.innerHTML = `This is ${id} block`;
   return div;
 };
 
 const inputCreator = (id) => {
   let input = document.createElement(id);
+  input.id = `${createRandomId()}`;
+  input.classList.add("form-item");
   return input;
 };
 
 const textFieldCreator = (id) => {
-  let textfield = document.createElement("input");
+  let textfield = document.createElement("textarea");
+  textfield.id = `${createRandomId()}`;
+  textfield.classList.add("form-item");
   return textfield;
 };
 
 const buttonCreator = (id) => {
   let button = document.createElement("button");
+  button.id = `${createRandomId()}`;
+  button.classList.add("button");
   button.innerHTML = "Click Here";
   return button;
 };
