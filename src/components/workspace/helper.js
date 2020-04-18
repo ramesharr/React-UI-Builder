@@ -24,15 +24,31 @@ const createRandomId = () => {
   return uuid().toString().substr(0, 6);
 };
 
+// const dragStart = (e) => {
+//   const target = e.target;
+//   e.dataTransfer.setData("card_id", target.id);
+// };
+
 const divCreator = (id) => {
   let div = document.createElement(id);
   div.id = `${createRandomId()}`;
+  div.style.border = "1px solid black";
+  div.style.width = "200px";
+  div.style.height = "100px";
+  div.setAttribute("draggable", "true");
+  // div.onDragStart = dragStart(div);
   return div;
 };
 
 const blockCreator = (id) => {
   let div = document.createElement("div");
   div.id = `${createRandomId()}`;
+  div.style.width = "auto";
+  div.style.background = "#333";
+  div.style.color = "#fff";
+  div.style.textAlign = "center";
+  div.style.padding = "20px";
+  div.setAttribute("draggable", "true");
   div.innerHTML = `This is ${id} block`;
   return div;
 };
