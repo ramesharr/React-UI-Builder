@@ -57,8 +57,8 @@ function Workspace(props) {
         onDrop={drop}
         onDragOver={dragOver}
         onClick={handleClick}
+        draggable="false"
       ></div>
-      <div className="txt">Drag and Drop Components Here.</div>
     </div>
   );
 }

@@ -38,7 +38,7 @@ const divHook = (elt, props, name) => {
   let data = {
     width: "200",
     height: "100",
-    bg: "transparent",
+    bg: "",
     placeholder: "",
   };
   const handleChange = (e) => {

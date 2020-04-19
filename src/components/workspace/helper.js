@@ -24,11 +24,6 @@ const createRandomId = () => {
   return uuid().toString().substr(0, 6);
 };
 
-// const dragStart = (e) => {
-//   const target = e.target;
-//   e.dataTransfer.setData("card_id", target.id);
-// };
-
 const divCreator = (id) => {
   let div = document.createElement(id);
   div.id = `${createRandomId()}`;
@@ -38,7 +33,6 @@ const divCreator = (id) => {
   div.style.height = "100px";
   div.style.cursor = "pointer";
   div.setAttribute("contenteditable", "true");
-  div.setAttribute("draggable", "true");
   return div;
 };
 
@@ -53,7 +47,6 @@ const blockCreator = (id) => {
   div.style.padding = "20px";
   div.style.cursor = "pointer";
   div.setAttribute("contenteditable", "true");
-  div.setAttribute("draggable", "true");
   div.innerHTML = `This is ${id} block`;
   return div;
 };

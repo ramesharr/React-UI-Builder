@@ -31,6 +31,7 @@ function Appcontainer() {
         getCurrentElt={getCurrentElt}
         getCurrentPos={getCurrentPos}
       />
+      <div className="txt">Drag and Drop Components Here.</div>
     </div>
   );
 }

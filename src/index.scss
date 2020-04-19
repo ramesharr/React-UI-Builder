@@ -81,6 +81,11 @@ $screen-sm-min: 768px;
   .flex-2 {
     width: 66%;
   }
+  .txt {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+  }
 }
 
 /* -- loader -- */
