@@ -9,7 +9,7 @@ const createElement = (id, width) => {
     case "headerDiv":
       return blockCreator(id, width);
     case "footerDiv":
-      return blockCreator(id);
+      return blockCreator(id, width);
     case "input":
       return inputCreator(id);
     case "textfield":

@@ -31,7 +31,7 @@ function Workspace(props) {
       dm.style.top = e.clientY + "px";
       e.target.appendChild(dm);
     } else {
-      e.target.append(createElement(card_id, width));
+      e.target.appendChild(createElement(card_id, width));
     }
     e.preventDefault();
     const txt = document.querySelector(".txt");
