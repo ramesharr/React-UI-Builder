@@ -29,15 +29,6 @@ const createRandomId = () => {
   return uuid().toString().substr(0, 6);
 };
 
-// const divCreator = (id) => {
-//   let div = React.createElement("div", {
-//     id: `${createRandomId()}`,
-//     className: "boardElt",
-//     style: { width: "200px", height: "100px", cursor: "pointer" },
-//   });
-//   console.log(div);
-// };
-
 const divCreator = (id) => {
   let div = document.createElement(id);
   div.id = `${createRandomId()}`;
