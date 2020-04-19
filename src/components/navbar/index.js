@@ -12,7 +12,7 @@ function Navbar(props) {
     props.onClear();
   };
 
-  // Savingthe template
+  // Saving the template
   const handleSave = () => {
     let data = document.getElementById("board").innerHTML;
     props.onSave(data);
