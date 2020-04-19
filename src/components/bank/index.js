@@ -4,13 +4,22 @@ import { connect } from "react-redux";
 import "./bank.scss";
 
 function Bank(props) {
+  console.log(props.currentPos);
   // For drag start
   const dragStart = (e) => {
     const target = e.target;
-    e.dataTransfer.setData("card_id", target.id);
+    if (props.currentPos === "absolute") {
+      // let style = window.getComputedStyle(target, null);
+      e.dataTransfer.setData("text/plain", e.clientX + "," + e.clientY);
+      e.dataTransfer.setData("card_id", e.target.id);
+    } else {
+      e.dataTransfer.setData("card_id", target.id);
+    }
   };
+
   // To stop propagation
   const dragOver = (e) => {
+    console.log();
     e.stopPropagation();
   };
 

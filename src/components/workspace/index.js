@@ -16,12 +16,27 @@ function Workspace(props) {
 
   // For Dropping
   const drop = (e) => {
-    e.preventDefault();
-    const card_id = e.dataTransfer.getData("card_id");
-    // const elt = document.getElementById(card_id).cloneNode(true);
-    e.target.appendChild(createElement(card_id));
-    const txt = document.querySelector(".txt");
-    txt.style.display = "none";
+    if (props.currentPos === "absolute") {
+      let offset = e.dataTransfer.getData("text/plain").split(",");
+      console.log(offset);
+      const card_id = e.dataTransfer.getData("card_id");
+      let dm = createElement(card_id);
+      console.log(e.clientX + parseInt(offset[0], 10) + "px");
+      dm.style.position = "absolute";
+      dm.style.left = e.clientX + "px";
+      dm.style.top = e.clientY + "px";
+      e.target.appendChild(dm);
+      e.preventDefault();
+      const txt = document.querySelector(".txt");
+      txt.style.display = "none";
+    } else {
+      e.preventDefault();
+      const card_id = e.dataTransfer.getData("card_id");
+      // const elt = document.getElementById(card_id).cloneNode(true);
+      e.target.appendChild(createElement(card_id));
+      const txt = document.querySelector(".txt");
+      txt.style.display = "none";
+    }
   };
   // To allow to continue on dropping
   const dragOver = (e) => {

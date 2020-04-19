@@ -13,11 +13,13 @@ function Editor(props) {
     ) : (
       <div>loading...</div>
     );
+
   // Entirely remove the element from parent
   const handleDelete = () => {
     elt.remove();
     props.getCurrentElt(null);
   };
+
   return (
     <div className="editor">
       <p>Properties</p>

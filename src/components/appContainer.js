@@ -20,7 +20,7 @@ function Appcontainer() {
 
   return (
     <div className="app-container">
-      <Bank />
+      <Bank currentPos={currentPos} />
       <Workspace
         currentPos={currentPos}
         currentElt={currentElt}
