@@ -23,7 +23,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://nagarjundeepak.github.io/React-UI-Builder",
   "eslintConfig": {
     "extends": "react-app"
   },
