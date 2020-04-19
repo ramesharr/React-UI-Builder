@@ -32,22 +32,27 @@ const createRandomId = () => {
 const divCreator = (id) => {
   let div = document.createElement(id);
   div.id = `${createRandomId()}`;
+  div.classList.add("boardElt");
   div.style.border = "1px solid black";
   div.style.width = "200px";
   div.style.height = "100px";
+  div.style.cursor = "pointer";
+  div.setAttribute("contenteditable", "true");
   div.setAttribute("draggable", "true");
-  // div.onDragStart = dragStart(div);
   return div;
 };
 
 const blockCreator = (id) => {
   let div = document.createElement("div");
   div.id = `${createRandomId()}`;
+  div.classList.add("boardElt");
   div.style.width = "auto";
   div.style.background = "#333";
   div.style.color = "#fff";
   div.style.textAlign = "center";
   div.style.padding = "20px";
+  div.style.cursor = "pointer";
+  div.setAttribute("contenteditable", "true");
   div.setAttribute("draggable", "true");
   div.innerHTML = `This is ${id} block`;
   return div;
@@ -56,22 +61,25 @@ const blockCreator = (id) => {
 const inputCreator = (id) => {
   let input = document.createElement(id);
   input.id = `${createRandomId()}`;
-  input.classList.add("form-item");
+  input.classList.add("boardElt", "form-item");
+  input.style.cursor = "pointer";
   return input;
 };
 
 const textFieldCreator = (id) => {
   let textfield = document.createElement("textarea");
   textfield.id = `${createRandomId()}`;
-  textfield.classList.add("form-item");
+  textfield.classList.add("boardElt", "form-item");
+  textfield.style.cursor = "pointer";
   return textfield;
 };
 
 const buttonCreator = (id) => {
   let button = document.createElement("button");
   button.id = `${createRandomId()}`;
-  button.classList.add("button");
+  button.classList.add("boardElt", "button");
   button.innerHTML = "Click Here";
+  button.style.cursor = "pointer";
   return button;
 };
 

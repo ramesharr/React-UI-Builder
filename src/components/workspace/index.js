@@ -14,16 +14,6 @@ function Workspace(props) {
     }
   }, [props.data]);
 
-  // For drag start
-  const dragStart = (e) => {
-    const target = e.target;
-    e.dataTransfer.setData("card_id", target.id);
-  };
-  // To stop propagation
-  const dragOver1 = (e) => {
-    e.stopPropagation();
-  };
-
   // For Dropping
   const drop = (e) => {
     e.preventDefault();
@@ -38,6 +28,27 @@ function Workspace(props) {
     e.preventDefault();
   };
 
+  // Capturing the clicked element
+  const handleClick = (e) => {
+    let els = document.getElementsByClassName("boardElt");
+    if (e.target.id === "board") {
+      props.getCurrentElt(null);
+    }
+    for (let i = 0; i < els.length; i++) {
+      let elt = document.getElementById(els[i].id);
+      if (els[i].id === e.target.id) {
+        elt.style.border = "2px dotted red";
+        props.getCurrentElt(e.target.id);
+      } else if (elt.nodeName === "DIV") {
+        elt.style.border = "1px solid black";
+      } else if (elt.nodeName === "BUTTON") {
+        elt.style.border = "1px solid transparent";
+      } else {
+        elt.style.border = "1px solid #ccc";
+      }
+    }
+  };
+
   return (
     <div className="col flex-2 ws">
       <div
@@ -45,6 +56,7 @@ function Workspace(props) {
         className="board"
         onDrop={drop}
         onDragOver={dragOver}
+        onClick={handleClick}
       ></div>
       <div className="txt">Drag and Drop Components Here.</div>
     </div>

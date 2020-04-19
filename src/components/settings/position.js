@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
-function PositionSetter() {
-  const [val, setVal] = useState(null);
+function PositionSetter(props) {
+  const [val, setVal] = useState("static");
   const handleChange = (e) => {
     setVal(e.target.value);
   };
   const handleSubmit = () => {
-    console.log(val);
+    props.getCurrentPos(val);
   };
   return (
-    <div>
-      <div>
+    <div className="position">
+      <div className="position__select">
         <label>Select Components Positioning</label>
-        <select onChange={handleChange}>
-          <option value="absolute">Absolute</option>
+        <select className="form-item" onChange={handleChange}>
           <option value="static">Static</option>
+          <option value="absolute">Absolute</option>
         </select>
       </div>
-      <div>
-        <button type="submit" onClick={handleSubmit}>
+      <div className="position__btn">
+        <button type="submit" className="button warning" onClick={handleSubmit}>
           Submit
         </button>
       </div>

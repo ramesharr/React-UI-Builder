@@ -30,6 +30,7 @@ function Navbar(props) {
         </button>
         <button className="button success">Publish</button>
       </div>
+      {}
     </div>
   );
 }

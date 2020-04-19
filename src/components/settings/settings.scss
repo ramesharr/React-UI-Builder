@@ -2,9 +2,50 @@
   background-color: #ece8df;
   align-items: center;
   flex-direction: column;
+  font-family: "San Francisco", Helvetica, Arial;
+  font-size: 14px;
   &__title {
     margin: 15px 0px;
     text-align: center;
+    font-size: 16px;
     font-weight: bold;
+  }
+}
+
+.position {
+  &__select {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin: 10px 10px;
+    select {
+      margin-top: 10px;
+      width: 100%;
+      height: 35px;
+    }
+  }
+  &__btn {
+    margin: 10px 10px;
+  }
+}
+
+.editor {
+  margin: 10px 10px;
+  input {
+    width: 80%;
+    height: 25px;
+  }
+  select {
+    width: 95%;
+    height: 35px;
+  }
+  .btnGroup {
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .delete {
+    display: flex;
+    justify-content: center;
   }
 }
