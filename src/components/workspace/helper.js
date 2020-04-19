@@ -98,7 +98,7 @@ const buttonCreator = (id) => {
 
 const headerCreator = (id) => {
   let head = document.createElement("H1");
-  head.id = s`${createRandomId()}`;
+  head.id = `${createRandomId()}`;
   head.innerHTML = "Heading 1";
   head.setAttribute("contenteditable", "true");
   head.style.cursor = "pointer";

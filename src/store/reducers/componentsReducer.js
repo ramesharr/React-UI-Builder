@@ -9,6 +9,10 @@ const initState = {
     { name: "Text Field", id: "textfield" },
     { name: "Button", id: "buttonElt" },
   ],
+  textElements: [
+    { name: "Heading", id: "heading" },
+    { name: "Paragraph", id: "paragraph" },
+  ],
 };
 
 export const Components = (state = initState, action) => {

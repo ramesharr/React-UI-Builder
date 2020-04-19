@@ -21,7 +21,7 @@ function Bank(props) {
     e.stopPropagation();
   };
 
-  const { wireframes, formfields } = props;
+  const { wireframes, formfields, textElements } = props;
 
   return (
     <div className="col flex-1 bank">
@@ -43,6 +43,20 @@ function Bank(props) {
         })}
         <p>Form Fields</p>
         {formfields.map((item) => {
+          return (
+            <li
+              key={item.id}
+              id={item.id}
+              draggable
+              onDragStart={dragStart}
+              onDragOver={dragOver}
+            >
+              {item.name}
+            </li>
+          );
+        })}
+        <p>Text Elements:</p>
+        {textElements.map((item) => {
           return (
             <li
               key={item.id}

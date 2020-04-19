@@ -24,6 +24,6 @@ it("shows the navbar", () => {
   expect(wrapped.find(Navbar).length).toEqual(1);
 });
 
-it("shows the container", () => {
+it("shows the app container", () => {
   expect(wrapped.find(Appcontainer).length).toEqual(1);
 });
