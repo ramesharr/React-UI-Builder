@@ -16,6 +16,10 @@ const createElement = (id, width) => {
       return textFieldCreator(id);
     case "buttonElt":
       return buttonCreator(id);
+    case "heading":
+      return headerCreator(id);
+    case "paragraph":
+      return paraCreator(id);
     default:
       return null;
   }
@@ -92,4 +96,24 @@ const buttonCreator = (id) => {
   return button;
 };
 
+const headerCreator = (id) => {
+  let head = document.createElement("H1");
+  head.id = s`${createRandomId()}`;
+  head.innerHTML = "Heading 1";
+  head.setAttribute("contenteditable", "true");
+  head.style.cursor = "pointer";
+  head.setAttribute("draggable", "true");
+  return head;
+};
+
+const paraCreator = (id) => {
+  let para = document.createElement("p");
+  para.id = `${createRandomId()}`;
+  para.innerHTML =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  para.setAttribute("contenteditable", "true");
+  para.style.cursor = "pointer";
+  para.setAttribute("draggable", "true");
+  return para;
+};
 export { createElement };
