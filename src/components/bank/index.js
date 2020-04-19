@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import "./bank.scss";
 
 function Bank(props) {
-  console.log(props.currentPos);
   // For drag start
   const dragStart = (e) => {
     const target = e.target;
@@ -19,7 +18,6 @@ function Bank(props) {
 
   // To stop propagation
   const dragOver = (e) => {
-    console.log();
     e.stopPropagation();
   };
 

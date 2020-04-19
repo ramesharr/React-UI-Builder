@@ -11,7 +11,7 @@ function PositionSetter(props) {
   return (
     <div className="position">
       <div className="position__select">
-        <label>Select Components Positioning</label>
+        <label>Select Components Initial Positioning</label>
         <select className="form-item" onChange={handleChange}>
           <option value="static">Static</option>
           <option value="absolute">Absolute</option>

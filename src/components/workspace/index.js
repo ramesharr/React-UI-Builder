@@ -16,31 +16,31 @@ function Workspace(props) {
 
   // For Dropping
   const drop = (e) => {
-    if (props.currentPos === "absolute") {
-      let offset = e.dataTransfer.getData("text/plain").split(",");
-      console.log(offset);
-      const card_id = e.dataTransfer.getData("card_id");
-      let dm = createElement(card_id);
-      console.log(e.clientX + parseInt(offset[0], 10) + "px");
+    let width = document.getElementById("board").offsetWidth - 38;
+    const card_id = e.dataTransfer.getData("card_id");
+    if (card_id.length === 6) {
+      let elt = document.getElementById(card_id);
+      elt.style.position = "absolute";
+      elt.style.left = e.clientX + "px";
+      elt.style.top = e.clientY + "px";
+      e.target.appendChild(elt);
+    } else if (props.currentPos === "absolute") {
+      let dm = createElement(card_id, width);
       dm.style.position = "absolute";
       dm.style.left = e.clientX + "px";
       dm.style.top = e.clientY + "px";
       e.target.appendChild(dm);
-      e.preventDefault();
-      const txt = document.querySelector(".txt");
-      txt.style.display = "none";
     } else {
-      e.preventDefault();
-      const card_id = e.dataTransfer.getData("card_id");
-      // const elt = document.getElementById(card_id).cloneNode(true);
-      e.target.appendChild(createElement(card_id));
-      const txt = document.querySelector(".txt");
-      txt.style.display = "none";
+      e.target.append(createElement(card_id, width));
     }
+    e.preventDefault();
+    const txt = document.querySelector(".txt");
+    txt.style.display = "none";
   };
   // To allow to continue on dropping
   const dragOver = (e) => {
     e.preventDefault();
+    e.stopPropagation();
   };
 
   // Capturing the clicked element
@@ -64,6 +64,13 @@ function Workspace(props) {
     }
   };
 
+  // Helpers
+  const handleDragStart = (e) => {
+    if (e.target.id !== "board") {
+      e.dataTransfer.setData("card_id", e.target.id);
+    }
+  };
+
   return (
     <div className="col flex-2 ws">
       <div
@@ -72,7 +79,7 @@ function Workspace(props) {
         onDrop={drop}
         onDragOver={dragOver}
         onClick={handleClick}
-        draggable="false"
+        onDragStart={handleDragStart}
       ></div>
     </div>
   );
